@@ -1,0 +1,2 @@
+<img *ngIf="user && user.profilePicture" [src]="user.profilePicture" />
+<input type="file" (change)="uploadProfilePic($event)" value="changer la photo" />

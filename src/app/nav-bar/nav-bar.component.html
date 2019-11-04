@@ -1,0 +1,17 @@
+<div>
+    <h1>Ganesh Raiders</h1>
+    <div *ngIf="user"> 
+        <a [routerLink]="[ '/profiles' ]">{{ user }}</a> 
+        <button (click)="logout()">logout</button>
+    </div>
+    <div *ngIf="!user">
+        <ul>
+            <li>
+                <a [routerLink]="['/auth', 'signin']">signin</a>
+            </li>
+            <li>
+                <a [routerLink]="['/auth', 'signup']">signup</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "ganesh-raiders",
+      "public": "dist/ganesh-raiders",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

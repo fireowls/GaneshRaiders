@@ -1,0 +1,7 @@
+<form [formGroup]="signup" (ngSubmit)="submit()">
+    <input type="text" formControlName="name" placeholder="name" /> <br>
+    <input type="email" formControlName="email" placeholder="email" /> <br>
+    <input type="password" formControlName="password" placeholder="password" /> <br>
+    <input type="password" formControlName="comfirmPassword" placeholder="comfirm password" /> <br>
+    <input type="submit" value="register" />
+</form>

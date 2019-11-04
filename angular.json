@@ -122,8 +122,13 @@
               "devServerTarget": "ganesh-raiders:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ganesh-raiders"
 }

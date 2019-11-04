@@ -1,0 +1,5 @@
+<div>
+    <div style="display: inline">{{ user.id }}</div>
+    <input type="text" (input)="updateUser()" [(ngModel)]="user.name" />
+    <input type="number" (input)="updateUser()" [(ngModel)]="user.grade" />
+</div>
