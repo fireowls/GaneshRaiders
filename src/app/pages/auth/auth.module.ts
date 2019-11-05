@@ -7,6 +7,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { FireModule } from 'src/app/fire/fire.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { MaterialModule } from 'src/app/material/material.module';
 
 @NgModule({
   declarations: [SigninComponent, SignupComponent, AuthPageComponent],
@@ -14,6 +15,7 @@ import { AuthService } from './services/auth.service';
     CommonModule,
     AuthRoutingModule,
     FireModule,
+    MaterialModule,
     ReactiveFormsModule
   ],
   providers: [ AuthService ]

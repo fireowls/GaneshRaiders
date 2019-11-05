@@ -1,0 +1,13 @@
+<h1 *ngIf="title">{{ title }}</h1>
+
+<ul *ngIf="authors">
+    <li *ngFor="let author of authors">
+        {{ author }}
+    </li>
+</ul>
+<hr>
+<article *ngIf="paragraphes">
+    <section *ngFor="let paragraphe of paragraphes" [innerHTML]="paragraphe.content"></section>
+</article>
+
+<a [routerLink]="['/articles', 'edit', name]">Modifier l'article</a>

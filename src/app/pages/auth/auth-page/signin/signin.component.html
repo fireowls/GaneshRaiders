@@ -1,5 +1,15 @@
-<form [formGroup]="signin" (ngSubmit)="submit()">
-    <input type="email" placeholder="email" formControlName="email" /> <br />
-    <input type="password" placeholder="password" formControlName="password" /> <br />
-    <input type="submit" value="signin" />
+<form class="signinBox" [formGroup]="signin" (ngSubmit)="submit()">
+
+    <h2 class="text-center">Se connecter</h2>
+    
+    <mat-form-field class="full-width">
+        <input matInput type="email" placeholder="Email" formControlName="email" required />
+    </mat-form-field>
+    
+    <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Mot de passe" formControlName="password" required />    
+    </mat-form-field>
+    <p *ngIf="error" class="error">{{ error }}</p>
+    <button class="full-width" mat-raised-button color="accent" type="submit" [disabled]="!signin.valid">Se connecter</button>
+    <button class="full-width" mat-button [routerLink]="['/auth', 'signup']" >Créer un compte</button>
 </form>

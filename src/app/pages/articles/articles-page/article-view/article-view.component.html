@@ -1,0 +1,11 @@
+<div *ngIf="!article">
+    loading...
+</div>
+<div *ngIf="article">
+    <div *ngIf="edit ; then edit else loaded"></div>
+</div>
+<div *ngIf="!article && notFound">
+    <h1>Article not found</h1>
+</div>
+<ng-template #loaded><app-article-loaded [article]="article"></app-article-loaded></ng-template>
+<ng-template #edit><app-article-edit [article]="article"></app-article-edit></ng-template>

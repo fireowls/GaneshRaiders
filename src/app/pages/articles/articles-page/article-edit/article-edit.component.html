@@ -1,0 +1,17 @@
+<input type="text" [(ngModel)]="title" />
+<input type="text" [(ngModel)]="description" />
+
+<ul *ngIf="authors">
+    <li *ngFor="let author of authors">
+        {{ author }}
+    </li>
+</ul>
+<hr>
+
+<div *ngFor="let paragraphe of paragraphes">
+    <textarea contenteditable="paragraphe"></textarea>
+</div>
+
+<textarea contenteditable="paragraphe"></textarea>
+
+<button (click)="save()">Sauvgarder</button>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Auth } from '../../models/auth.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,21 +11,22 @@ import { Auth } from '../../models/auth.model';
 export class SignupComponent implements OnInit {
 
   signup: FormGroup;
+  error: string;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private route: Router) { }
 
   ngOnInit() {
     this.signup = this.fb.group({
-      name: [''],
-      email: [''],
-      password: [''],
-      comfirmPassword: ['']
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      comfirmPassword: ['', Validators.required]
     });
   }
 
   submit() {
     this.authService.signup({ name: this.name }, this.email, this.password)
-      .catch(err => console.log(err.message));
+      .then(() => this.route.navigate(['/articles']), err => this.error = err.message);
   }
 
   get name(): string {

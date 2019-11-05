@@ -39,7 +39,7 @@ export class AuthService {
           grade: Grade.NONE,
           ...auth
         };
-        this.setUser(user).then(() => resolve, err => reject(err));
+        this.setUser(user).then(() => resolve(), err => reject(err));
       }, err => reject(err));
     });
   }
@@ -77,6 +77,18 @@ export class AuthService {
       this.firestore.collection('users').doc(user.id).set(user).then(
         () => resolve(), err => reject(err)
       );
+    });
+  }
+
+  isAdmin(): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      this.user.pipe(first()).subscribe(user => {
+        if (!user) {
+          reject('user is not logged...');
+        } else {
+          resolve(user.grade === Grade.ADMIN);
+        }
+      });
     });
   }
 

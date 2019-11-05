@@ -1,17 +1,23 @@
-<div>
-    <h1>Ganesh Raiders</h1>
-    <div *ngIf="user"> 
-        <a [routerLink]="[ '/profiles' ]">{{ user }}</a> 
-        <button (click)="logout()">logout</button>
-    </div>
-    <div *ngIf="!user">
-        <ul>
-            <li>
-                <a [routerLink]="['/auth', 'signin']">signin</a>
-            </li>
-            <li>
-                <a [routerLink]="['/auth', 'signup']">signup</a>
-            </li>
-        </ul>
-    </div>
-</div>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Ganesh Raiders</span>
+        <span class="spacer"></span>
+        <div *ngIf="user" class="icon">
+            <button mat-button [matMenuTriggerFor]="userMenu">
+                <span class="user">{{ user }} </span><mat-icon>account_circle</mat-icon>
+            </button>
+        </div>
+        <div *ngIf="!user" class="icon">
+            <button mat-button [routerLink]="['/auth']">Se connecter</button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-menu #userMenu="matMenu">
+    <button mat-menu-item [routerLink]="[ '/profiles' ]">
+        voir votre profile
+    </button>
+    <button mat-menu-item (click)="logout()">
+        Se deconnecter
+    </button>
+</mat-menu>

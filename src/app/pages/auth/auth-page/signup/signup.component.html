@@ -1,7 +1,24 @@
-<form [formGroup]="signup" (ngSubmit)="submit()">
-    <input type="text" formControlName="name" placeholder="name" /> <br>
-    <input type="email" formControlName="email" placeholder="email" /> <br>
-    <input type="password" formControlName="password" placeholder="password" /> <br>
-    <input type="password" formControlName="comfirmPassword" placeholder="comfirm password" /> <br>
-    <input type="submit" value="register" />
+<form class="signupBox" [formGroup]="signup" (ngSubmit)="submit()">
+
+    <h2 class="text-center">Créer un compte</h2>
+
+    <mat-form-field class="full-width">
+        <input matInput type="text" formControlName="name" placeholder="name" />
+    </mat-form-field>
+    
+    <mat-form-field class="full-width">
+        <input matInput type="email" formControlName="email" placeholder="email" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <input matInput type="password" formControlName="password" placeholder="password" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <input matInput type="password" formControlName="comfirmPassword" placeholder="comfirm password" />
+    </mat-form-field>
+    <p *ngIf="error" class="error">{{ error }}</p>
+    <button mat-raised-button color="accent" class="full-width" type="submit" [disabled]="!signup.valid">Créer mon compte</button>
+    <button mat-button class="full-width" [routerLink]="['/auth', 'signin']">J'ai deja un compte</button>
+
 </form>

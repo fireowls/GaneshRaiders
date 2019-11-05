@@ -1,0 +1,13 @@
+@mixin shadow($x, $y) {
+    box-shadow: $x $y rgba($color: #000, $alpha: 0.1);
+}
+
+@mixin popDown($duration) {
+    animation: popDown $duration;
+}
+
+@keyframes popDown {
+    from {
+        transform: translateY(500%);
+    }
+}

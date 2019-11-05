@@ -8,6 +8,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { environment } from 'src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     PagesModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

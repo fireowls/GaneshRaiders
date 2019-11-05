@@ -1,0 +1,4 @@
+<input type="text" #articleName /> <button (click)="createArticle(articleName.value)">Créer un nouvelle article</button>
+<div *ngFor="let article of articles | async">
+    <app-article-item [article]="article"></app-article-item>
+</div>
