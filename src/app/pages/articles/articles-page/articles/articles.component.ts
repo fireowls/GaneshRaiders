@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Article } from '../../models/article.model';
+import { ArticlesService } from '../../services/articles.service';
 
 @Component({
   selector: 'app-articles',
@@ -7,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlesComponent implements OnInit {
 
-  test = '<h1>test</h1>';
+  articles: Article[];
 
-  constructor() { }
+  constructor(private articlesService: ArticlesService) { }
 
   ngOnInit() {
+    this.articlesService.articles.subscribe(articles => this.articles = articles);
+  }
+
+  newArticle(value: string) {
+    this.articlesService.setArticle({
+      name: value,
+      date: new Date()
+    } as Article).catch(err => console.error(err.message));
   }
 
 }

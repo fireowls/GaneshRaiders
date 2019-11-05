@@ -1,2 +1,5 @@
-<p>articles works!</p>
-<div [innerHTML]="test"></div>
+<input type="text" #articleName> <button (click)="newArticle(articleName.value)">Créer un nouvelle article</button>
+
+<div *ngFor="let article of articles">
+    <app-article-item [article]="article"></app-article-item>
+</div>

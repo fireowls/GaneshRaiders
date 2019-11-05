@@ -3,9 +3,10 @@ export interface Paragraphe {
 }
 
 export interface Article {
-    title: string;
-    description: string;
-    authors: string[];
-    paragraphes: Paragraphe[];
+    name: string;
+    title?: string;
+    description?: string;
+    authors?: string[];
+    paragraphes?: Paragraphe[];
     date: Date;
 }
