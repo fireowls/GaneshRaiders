@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Créer un nouvelle article ?</h1>
+<div mat-dialog-content>
+    <p>Quel sera le nom de votre prochain article ?</p>
+    <mat-form-field class="full-width">
+        <input matInput [(ngModel)]="name" (keyup)="check()" placeholder="Mon prochain article..."/>
+    </mat-form-field>
+    <span *ngIf="!createArticle && edit" class="error">Le nom est incorrect ou deja utilisé</span>
+</div>
+<div mat-dialog-actions class="full-width">
+    <button mat-button (click)="cancel()">Annulé</button>
+    <button class="right" mat-raised-button color="primary" [mat-dialog-close]="name" [disabled]="!createArticle">Créer</button>
+</div>

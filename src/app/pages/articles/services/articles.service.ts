@@ -20,6 +20,12 @@ export class ArticlesService {
     return this.firestore.collection('articles').doc(name).valueChanges() as Observable<Article>;
   }
 
+  containArticle(name: string): Promise<boolean> {
+    return new Promise<boolean>((resolve) => {
+      this.firestore.collection('articles').doc(name).get().subscribe(doc => resolve(doc.exists));
+    });
+  }
+
   setArticle(article: Article): Promise<void> {
     return new Promise((resolve, reject) => {
       this.firestore.collection('articles').doc(article.name).set(article).then(

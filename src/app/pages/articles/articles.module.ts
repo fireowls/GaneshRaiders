@@ -13,6 +13,8 @@ import { ArticleViewComponent } from './articles-page/article-view/article-view.
 import { ArticleLoadedComponent } from './articles-page/article-view/article-loaded/article-loaded.component';
 import { ArticleNotFoundComponent } from './articles-page/article-view/article-not-found/article-not-found.component';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/material/material.module';
+import { CreateArticleDialogComponent } from './articles-page/articles-list/create-article-dialog/create-article-dialog.component';
 
 
 @NgModule({
@@ -23,14 +25,17 @@ import { FormsModule } from '@angular/forms';
     ArticleEditComponent,
     ArticleViewComponent,
     ArticleLoadedComponent,
-    ArticleNotFoundComponent
+    ArticleNotFoundComponent,
+    CreateArticleDialogComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ArticlesRoutingModule,
+    MaterialModule,
     FireModule
   ],
+  entryComponents: [CreateArticleDialogComponent],
   providers: [ ArticlesService ],
   exports: [ArticlesPageComponent]
 })

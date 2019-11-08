@@ -10,5 +10,7 @@ export interface User extends Auth {
 
 export enum Grade {
     NONE,
+    REDACTOR,
+    MODERATOR,
     ADMIN
 }
